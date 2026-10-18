@@ -1,0 +1,14 @@
+{
+  "tokensUsed": 424578,
+  "contextWindow": 1000000,
+  "percentUsed": 42,
+  "autoCompactsAtPercent": 97,
+  "categories": [
+    {"name": "Messages", "tokens": 380000, "percent": 38},
+    {"name": "System tools", "tokens": 22000, "percent": 2.2},
+    {"name": "MCP tools", "tokens": 9000, "percent": 0.9},
+    {"name": "System prompt", "tokens": 8000, "percent": 0.8},
+    {"name": "Skills", "tokens": 4000, "percent": 0.4},
+    {"name": "MCP server instructions", "tokens": 1578, "percent": 0.2}
+  ]
+}

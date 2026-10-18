@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>コンテキスト使用量</title><style>
+:root{--bg:#ffffff;--card:#fcfcfb;--t1:#0b0b0b;--t2:#52514e;--mut:#898781;--grid:#e1e0d9;--limit:#898781;--unused:#b4b2a9;--auto:#e34948;--ctx:#2a78d6;--line:#e1e0d9}
+@media (prefers-color-scheme:dark){:root{--bg:#1a1a19;--card:#232322;--t1:#f0efec;--t2:#c3c2b7;--mut:#898781;--grid:#2c2c2a;--limit:#898781;--unused:#5c5b57;--auto:#e34948;--ctx:#2a78d6;--line:#3a3a38}}
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:var(--bg);color:var(--t1);font-family:system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI","Noto Sans JP",Meiryo,sans-serif;font-size:14px;line-height:1.5}
+.wrap{max-width:720px;margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;min-width:0}
+.k{font-size:12px;color:var(--t2)}.v{font-size:22px;font-weight:600;color:var(--t1);line-height:1.3}.s{font-size:12px;color:var(--mut)}
+h3{font-size:14px;margin:0 0 6px;color:var(--t1);font-weight:600}
+section{margin-bottom:22px}
+.chart{display:block;width:100%;height:auto}
+.tx{font-size:12px;fill:var(--t2)}.tx.val{fill:var(--t1);font-weight:600}
+.grid{stroke:var(--grid);stroke-width:1}
+.ctx{fill:none;stroke:var(--ctx);stroke-width:2.2;stroke-linejoin:round}
+.area{fill:var(--ctx);fill-opacity:.12}
+.lgarea{fill:var(--ctx);fill-opacity:.18}
+.auto{stroke:var(--auto);stroke-width:1.8;stroke-dasharray:2 4;stroke-linecap:round}
+.limit{stroke:var(--limit);stroke-width:1.6;stroke-dasharray:8 5}
+.dot{fill:var(--ctx);fill-opacity:0}.dot:hover{fill-opacity:1}
+.enddot{fill:var(--ctx);stroke:var(--bg);stroke-width:2}
+.cmark{fill:none;stroke:var(--auto);stroke-width:2.2}
+ul.lgd{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--t2)}
+ul.lgd li{display:flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:11px;height:11px;border-radius:2px;flex:none}
+.lg{width:28px;height:12px;flex:none}
+.note{font-size:11px;color:var(--mut);margin:6px 0 0}
+@media (max-width:520px){.cards{grid-template-columns:repeat(2,1fr)}.tx{font-size:20px}}
+</style></head><body><div class="wrap">
+<h2 class="sr-only">コンテキストは 424,578 トークン（枠 1,000,000 の 42%）。圧縮の検出は 1 回。</h2>
+<div class="cards"><div class="card"><div class="k">使用トークン</div><div class="v">424,578</div><div class="s">枠 1,000,000</div></div><div class="card"><div class="k">使用率</div><div class="v">42%</div><div class="s">枠に対する割合</div></div><div class="card"><div class="k">自動圧縮の開始</div><div class="v">97%</div><div class="s">約 97万</div></div><div class="card"><div class="k">圧縮が起きた回数</div><div class="v">1回</div><div class="s">応答 70 回中</div></div></div>
+<section><h3>コンテキストの推移（応答ごと）</h3>
+<svg viewBox="0 0 600 290" role="img" aria-labelledby="t1 d1" class="chart">
+<title id="t1">コンテキストの推移</title>
+<desc id="d1">応答ごとのコンテキスト使用量の折れ線。最後は 424,578 トークン。枠は 1,000,000 トークン、自動圧縮は 97%。</desc>
+<line x1="54" x2="584" y1="256" y2="256" class="grid"/>
+<text x="48" y="256" class="tx" text-anchor="end" dominant-baseline="middle">0</text>
+<line x1="54" x2="584" y1="210" y2="210" class="grid"/>
+<text x="48" y="210" class="tx" text-anchor="end" dominant-baseline="middle">20万</text>
+<line x1="54" x2="584" y1="164" y2="164" class="grid"/>
+<text x="48" y="164" class="tx" text-anchor="end" dominant-baseline="middle">40万</text>
+<line x1="54" x2="584" y1="118" y2="118" class="grid"/>
+<text x="48" y="118" class="tx" text-anchor="end" dominant-baseline="middle">60万</text>
+<line x1="54" x2="584" y1="72" y2="72" class="grid"/>
+<text x="48" y="72" class="tx" text-anchor="end" dominant-baseline="middle">80万</text>
+<line x1="54" x2="584" y1="26" y2="26" class="grid"/>
+<text x="48" y="26" class="tx" text-anchor="end" dominant-baseline="middle">100万</text>
+<line x1="54" x2="54" y1="256" y2="260" class="grid"/>
+<text x="54" y="276" class="tx" text-anchor="start">1/05</text>
+<line x1="368.9" x2="368.9" y1="256" y2="260" class="grid"/>
+<text x="368.9" y="276" class="tx" text-anchor="middle">1/06</text>
+<line x1="54" x2="584" y1="26" y2="26" class="limit"/>
+<line x1="54" x2="584" y1="32.9" y2="32.9" class="auto"/>
+<path d="M54,256 L54,249.8 L61.7,247.6 L69.4,245.4 L77,243 L84.7,240.6 L92.4,238.1 L100.1,235.5 L107.8,232.7 L115.4,229.9 L123.1,227.1 L130.8,224.1 L138.5,221 L146.2,217.8 L153.9,214.6 L161.5,211.2 L169.2,207.8 L176.9,204.3 L184.6,200.6 L192.3,198.5 L199.9,196.3 L207.6,194 L215.3,191.7 L223,189.2 L230.7,186.6 L238.3,184 L246,181.2 L253.7,178.4 L261.4,175.5 L269.1,172.5 L276.8,169.4 L284.4,166.2 L292.1,162.9 L299.8,159.5 L307.5,156 L315.2,152.5 L322.8,148.8 L330.5,146.7 L338.2,144.4 L345.9,248.2 L353.6,245.8 L361.2,243.3 L368.9,240.7 L376.6,238 L384.3,235.2 L392,232.3 L399.7,229.4 L407.3,226.3 L415,223.2 L422.7,220 L430.4,216.6 L438.1,213.2 L445.7,209.7 L453.4,206.1 L461.1,204 L468.8,201.9 L476.5,199.6 L484.1,197.2 L491.8,194.8 L499.5,192.3 L507.2,189.6 L514.9,186.9 L522.6,184.1 L530.2,181.2 L537.9,178.2 L545.6,175.1 L553.3,172 L561,168.7 L568.6,165.3 L576.3,161.9 L584,158.3 L584,256 Z" class="area"/>
+<polyline points="54,249.8 61.7,247.6 69.4,245.4 77,243 84.7,240.6 92.4,238.1 100.1,235.5 107.8,232.7 115.4,229.9 123.1,227.1 130.8,224.1 138.5,221 146.2,217.8 153.9,214.6 161.5,211.2 169.2,207.8 176.9,204.3 184.6,200.6 192.3,198.5 199.9,196.3 207.6,194 215.3,191.7 223,189.2 230.7,186.6 238.3,184 246,181.2 253.7,178.4 261.4,175.5 269.1,172.5 276.8,169.4 284.4,166.2 292.1,162.9 299.8,159.5 307.5,156 315.2,152.5 322.8,148.8 330.5,146.7 338.2,144.4 345.9,248.2 353.6,245.8 361.2,243.3 368.9,240.7 376.6,238 384.3,235.2 392,232.3 399.7,229.4 407.3,226.3 415,223.2 422.7,220 430.4,216.6 438.1,213.2 445.7,209.7 453.4,206.1 461.1,204 468.8,201.9 476.5,199.6 484.1,197.2 491.8,194.8 499.5,192.3 507.2,189.6 514.9,186.9 522.6,184.1 530.2,181.2 537.9,178.2 545.6,175.1 553.3,172 561,168.7 568.6,165.3 576.3,161.9 584,158.3" class="ctx"/>
+<circle cx="54" cy="249.8" r="3.5" class="dot"><title>1/05 10:17  27,000</title></circle>
+<circle cx="61.7" cy="247.6" r="3.5" class="dot"><title>1/05 10:34  36,397</title></circle>
+<circle cx="69.4" cy="245.4" r="3.5" class="dot"><title>1/05 10:51  46,191</title></circle>
+<circle cx="77" cy="243" r="3.5" class="dot"><title>1/05 11:08  56,382</title></circle>
+<circle cx="84.7" cy="240.6" r="3.5" class="dot"><title>1/05 11:25  66,970</title></circle>
+<circle cx="92.4" cy="238.1" r="3.5" class="dot"><title>1/05 11:42  77,955</title></circle>
+<circle cx="100.1" cy="235.5" r="3.5" class="dot"><title>1/05 11:59  89,337</title></circle>
+<circle cx="107.8" cy="232.7" r="3.5" class="dot"><title>1/05 12:16  101,116</title></circle>
+<circle cx="115.4" cy="229.9" r="3.5" class="dot"><title>1/05 12:33  113,292</title></circle>
+<circle cx="123.1" cy="227.1" r="3.5" class="dot"><title>1/05 12:50  125,865</title></circle>
+<circle cx="130.8" cy="224.1" r="3.5" class="dot"><title>1/05 13:07  138,835</title></circle>
+<circle cx="138.5" cy="221" r="3.5" class="dot"><title>1/05 13:24  152,202</title></circle>
+<circle cx="146.2" cy="217.8" r="3.5" class="dot"><title>1/05 13:41  165,966</title></circle>
+<circle cx="153.9" cy="214.6" r="3.5" class="dot"><title>1/05 13:58  180,127</title></circle>
+<circle cx="161.5" cy="211.2" r="3.5" class="dot"><title>1/05 14:15  194,685</title></circle>
+<circle cx="169.2" cy="207.8" r="3.5" class="dot"><title>1/05 14:32  209,640</title></circle>
+<circle cx="176.9" cy="204.3" r="3.5" class="dot"><title>1/05 14:49  224,992</title></circle>
+<circle cx="184.6" cy="200.6" r="3.5" class="dot"><title>1/05 15:06  240,741</title></circle>
+<circle cx="192.3" cy="198.5" r="3.5" class="dot"><title>1/05 15:23  249,887</title></circle>
+<circle cx="199.9" cy="196.3" r="3.5" class="dot"><title>1/05 15:40  259,430</title></circle>
+<circle cx="207.6" cy="194" r="3.5" class="dot"><title>1/05 15:57  269,370</title></circle>
+<circle cx="215.3" cy="191.7" r="3.5" class="dot"><title>1/05 16:14  279,707</title></circle>
+<circle cx="223" cy="189.2" r="3.5" class="dot"><title>1/05 16:31  290,441</title></circle>
+<circle cx="230.7" cy="186.6" r="3.5" class="dot"><title>1/05 16:48  301,572</title></circle>
+<circle cx="238.3" cy="184" r="3.5" class="dot"><title>1/05 17:05  313,100</title></circle>
+<circle cx="246" cy="181.2" r="3.5" class="dot"><title>1/05 17:22  325,025</title></circle>
+<circle cx="253.7" cy="178.4" r="3.5" class="dot"><title>1/05 17:39  337,347</title></circle>
+<circle cx="261.4" cy="175.5" r="3.5" class="dot"><title>1/05 17:56  350,066</title></circle>
+<circle cx="269.1" cy="172.5" r="3.5" class="dot"><title>1/05 18:13  363,182</title></circle>
+<circle cx="276.8" cy="169.4" r="3.5" class="dot"><title>1/05 18:30  376,695</title></circle>
+<circle cx="284.4" cy="166.2" r="3.5" class="dot"><title>1/05 18:47  390,605</title></circle>
+<circle cx="292.1" cy="162.9" r="3.5" class="dot"><title>1/05 19:04  404,912</title></circle>
+<circle cx="299.8" cy="159.5" r="3.5" class="dot"><title>1/05 19:21  419,616</title></circle>
+<circle cx="307.5" cy="156" r="3.5" class="dot"><title>1/05 19:38  434,717</title></circle>
+<circle cx="315.2" cy="152.5" r="3.5" class="dot"><title>1/05 19:55  450,215</title></circle>
+<circle cx="322.8" cy="148.8" r="3.5" class="dot"><title>1/05 20:35  466,110</title></circle>
+<circle cx="330.5" cy="146.7" r="3.5" class="dot"><title>1/05 21:15  475,402</title></circle>
+<circle cx="338.2" cy="144.4" r="3.5" class="dot"><title>1/05 21:55  485,091</title></circle>
+<circle cx="345.9" cy="248.2" r="3.5" class="dot"><title>1/05 22:35  34,000</title></circle>
+<circle cx="353.6" cy="245.8" r="3.5" class="dot"><title>1/05 23:15  44,483</title></circle>
+<circle cx="361.2" cy="243.3" r="3.5" class="dot"><title>1/05 23:55  55,363</title></circle>
+<circle cx="368.9" cy="240.7" r="3.5" class="dot"><title>1/06 00:35  66,640</title></circle>
+<circle cx="376.6" cy="238" r="3.5" class="dot"><title>1/06 01:15  78,314</title></circle>
+<circle cx="384.3" cy="235.2" r="3.5" class="dot"><title>1/06 01:55  90,385</title></circle>
+<circle cx="392" cy="232.3" r="3.5" class="dot"><title>1/06 02:35  102,853</title></circle>
+<circle cx="399.7" cy="229.4" r="3.5" class="dot"><title>1/06 03:15  115,718</title></circle>
+<circle cx="407.3" cy="226.3" r="3.5" class="dot"><title>1/06 03:55  128,980</title></circle>
+<circle cx="415" cy="223.2" r="3.5" class="dot"><title>1/06 04:35  142,639</title></circle>
+<circle cx="422.7" cy="220" r="3.5" class="dot"><title>1/06 05:15  156,695</title></circle>
+<circle cx="430.4" cy="216.6" r="3.5" class="dot"><title>1/06 05:55  171,148</title></circle>
+<circle cx="438.1" cy="213.2" r="3.5" class="dot"><title>1/06 06:35  185,998</title></circle>
+<circle cx="445.7" cy="209.7" r="3.5" class="dot"><title>1/06 07:15  201,245</title></circle>
+<circle cx="453.4" cy="206.1" r="3.5" class="dot"><title>1/06 07:55  216,889</title></circle>
+<circle cx="461.1" cy="204" r="3.5" class="dot"><title>1/06 08:35  225,930</title></circle>
+<circle cx="468.8" cy="201.9" r="3.5" class="dot"><title>1/06 09:15  235,368</title></circle>
+<circle cx="476.5" cy="199.6" r="3.5" class="dot"><title>1/06 09:55  245,203</title></circle>
+<circle cx="484.1" cy="197.2" r="3.5" class="dot"><title>1/06 10:35  255,435</title></circle>
+<circle cx="491.8" cy="194.8" r="3.5" class="dot"><title>1/06 11:15  266,064</title></circle>
+<circle cx="499.5" cy="192.3" r="3.5" class="dot"><title>1/06 11:55  277,090</title></circle>
+<circle cx="507.2" cy="189.6" r="3.5" class="dot"><title>1/06 12:35  288,513</title></circle>
+<circle cx="514.9" cy="186.9" r="3.5" class="dot"><title>1/06 13:15  300,333</title></circle>
+<circle cx="522.6" cy="184.1" r="3.5" class="dot"><title>1/06 13:55  312,550</title></circle>
+<circle cx="530.2" cy="181.2" r="3.5" class="dot"><title>1/06 14:35  325,164</title></circle>
+<circle cx="537.9" cy="178.2" r="3.5" class="dot"><title>1/06 15:15  338,175</title></circle>
+<circle cx="545.6" cy="175.1" r="3.5" class="dot"><title>1/06 15:55  351,583</title></circle>
+<circle cx="553.3" cy="172" r="3.5" class="dot"><title>1/06 16:35  365,388</title></circle>
+<circle cx="561" cy="168.7" r="3.5" class="dot"><title>1/06 17:15  379,590</title></circle>
+<circle cx="568.6" cy="165.3" r="3.5" class="dot"><title>1/06 17:55  394,189</title></circle>
+<circle cx="576.3" cy="161.9" r="3.5" class="dot"><title>1/06 18:35  409,185</title></circle>
+<circle cx="584" cy="158.3" r="3.5" class="dot"><title>1/06 19:15  424,578</title></circle>
+<circle cx="345.9" cy="248.2" r="7" class="cmark"><title>圧縮を検出 485,091 → 34,000</title></circle>
+<circle cx="584" cy="158.3" r="4.5" class="enddot"/>
+<text x="584" y="148.3" class="tx val" text-anchor="end">424,578</text>
+</svg>
+<ul class="lgd"><li><svg class="lg" viewBox="0 0 28 12" aria-hidden="true"><rect x="0" y="1" width="28" height="10" class="lgarea"/><line x1="0" x2="28" y1="2" y2="2" class="ctx"/></svg>コンテキスト</li><li><svg class="lg" viewBox="0 0 28 12" aria-hidden="true"><line x1="0" x2="28" y1="6" y2="6" class="auto"/></svg>自動圧縮（97%）</li><li><svg class="lg" viewBox="0 0 28 12" aria-hidden="true"><line x1="0" x2="28" y1="6" y2="6" class="limit"/></svg>枠の上限（100万）</li><li><svg class="lg" viewBox="0 0 28 12" aria-hidden="true"><circle cx="14" cy="6" r="5" class="cmark"/></svg>圧縮を検出</li></ul></section>
+<section><h3>現在の内訳（枠全体に対する割合）</h3>
+<svg viewBox="0 0 600 64" role="img" aria-labelledby="t2 d2" class="chart">
+<title id="t2">コンテキストの内訳</title>
+<desc id="d2">メッセージ 380,000 トークン、システムツール 22,000 トークン、MCPツール 9,000 トークン、システムプロンプト 8,000 トークン、スキル 4,000 トークン、MCPサーバーの説明 1,578 トークン、未使用 575,422 トークン</desc>
+<rect x="8" y="6" width="219.9" height="30" rx="2" fill="#2a78d6"><title>メッセージ 380,000 トークン</title></rect>
+<rect x="229.9" y="6" width="10.8" height="30" rx="2" fill="#eb6834"><title>システムツール 22,000 トークン</title></rect>
+<rect x="242.8" y="6" width="3.3" height="30" rx="2" fill="#1baf7a"><title>MCPツール 9,000 トークン</title></rect>
+<rect x="248" y="6" width="2.7" height="30" rx="2" fill="#eda100"><title>システムプロンプト 8,000 トークン</title></rect>
+<rect x="252.7" y="6" width="1" height="30" rx="2" fill="#e87ba4"><title>スキル 4,000 トークン</title></rect>
+<rect x="255" y="6" width="1" height="30" rx="2" fill="#008300"><title>MCPサーバーの説明 1,578 トークン</title></rect>
+<rect x="256" y="6" width="334" height="30" rx="2" fill="var(--unused)"><title>未使用 575,422 トークン</title></rect>
+<text x="8" y="56" class="tx">0</text>
+<text x="592" y="56" class="tx" text-anchor="end">100万</text>
+</svg>
+<ul class="lgd"><li><span class="sw" style="background:#2a78d6"></span>メッセージ 380,000（枠の38%）</li><li><span class="sw" style="background:#eb6834"></span>システムツール 22,000（枠の2.2%）</li><li><span class="sw" style="background:#1baf7a"></span>MCPツール 9,000（枠の1%未満）</li><li><span class="sw" style="background:#eda100"></span>システムプロンプト 8,000（枠の1%未満）</li><li><span class="sw" style="background:#e87ba4"></span>スキル 4,000（枠の1%未満）</li><li><span class="sw" style="background:#008300"></span>MCPサーバーの説明 1,578（枠の1%未満）</li><li><span class="sw" style="background:var(--unused)"></span>未使用 575,422（枠の58%）</li></ul></section>
+<p class="note">ログ: sample</p>
+</div></body></html>
