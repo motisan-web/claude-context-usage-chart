@@ -1,0 +1,12 @@
+{
+  "name": "context-usage-chart",
+  "version": "0.1.0",
+  "description": "Draw how much of the context window a Claude Code session has used, as a single self-contained HTML chart built from the session log and get_usage.",
+  "author": {
+    "name": "motisan-web"
+  },
+  "homepage": "https://github.com/motisan-web/claude-context-usage-chart",
+  "repository": "https://github.com/motisan-web/claude-context-usage-chart",
+  "license": "MIT",
+  "keywords": ["context-window", "usage", "chart", "tokens", "visualization", "skill"]
+}

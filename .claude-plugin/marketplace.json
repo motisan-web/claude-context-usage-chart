@@ -1,0 +1,15 @@
+{
+  "name": "claude-context-usage-chart",
+  "description": "Context window usage chart for Claude Code sessions",
+  "owner": {
+    "name": "motisan-web"
+  },
+  "plugins": [
+    {
+      "name": "context-usage-chart",
+      "source": "./",
+      "description": "Draw how much of the context window a Claude Code session has used, as a single self-contained HTML chart.",
+      "version": "0.1.0"
+    }
+  ]
+}
