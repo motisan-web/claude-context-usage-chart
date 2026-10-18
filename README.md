@@ -14,7 +14,7 @@ A Claude Code skill (`context-usage-chart`). Ask "how much context have I used?"
 
 A Python script reads the local session log and writes a finished HTML file (inline SVG, no external dependencies, light and dark mode). Claude only runs it and shows the file, so the chart costs almost no context itself.
 
-Example (synthetic data, open in a browser): [examples/sample-output.html](examples/sample-output.html). The chart labels are in Japanese.
+Example (synthetic data): [open the live sample](https://motisan-web.github.io/claude-context-usage-chart/examples/sample-output.html) ([source file](examples/sample-output.html)). The chart labels are in Japanese.
 
 ## Install
 

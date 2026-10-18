@@ -14,7 +14,7 @@ Claude Code のスキル（`context-usage-chart`）です。「コンテキス�
 
 Pythonスクリプトがローカルのセッションログを読み、完成したHTML（インラインSVG、外部依存なし、ライト/ダーク対応）を書き出します。Claudeは実行して表示するだけなので、図を出すこと自体がほとんどコンテキストを使いません。
 
-サンプル（合成データ。ブラウザで開く）: [examples/sample-output.html](examples/sample-output.html)
+サンプル（合成データ）: [ブラウザで開く](https://motisan-web.github.io/claude-context-usage-chart/examples/sample-output.html)（[ソースファイル](examples/sample-output.html)）
 
 ## インストール
 
