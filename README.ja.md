@@ -49,6 +49,8 @@ Copy-Item -Recurse claude-context-usage-chart\skills\context-usage-chart "$HOME\
 
 > Read AGENTS.md in https://github.com/motisan-web/claude-context-usage-chart and install the skill.
 
+導入では、スキルのフォルダへのファイル書き込みと、Pythonスクリプトの実行が発生します。そのため `AGENTS.md` では、エージェントが書き込む内容をユーザーに具体的に示し、承認を得てから導入するよう指示しています。
+
 ## 使い方
 
 Claudeに「コンテキストの使用量をグラフで見せて」「コンテキストウィンドウをどこまで使った？」と頼むだけです。

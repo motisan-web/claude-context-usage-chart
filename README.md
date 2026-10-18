@@ -49,6 +49,8 @@ Give your agent this sentence:
 
 > Read AGENTS.md in https://github.com/motisan-web/claude-context-usage-chart and install the skill.
 
+Installing writes files into your skills directory and lets the skill run a Python script, so `AGENTS.md` tells the agent to show you exactly what it will write and wait for your approval first.
+
 ## Usage
 
 Just ask Claude: "show me the context usage as a chart", "how much of the context window have I used?", "コンテキストの使用量をグラフで見せて".

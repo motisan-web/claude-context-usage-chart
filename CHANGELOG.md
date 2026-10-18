@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `AGENTS.md`: agents must now show the user exactly what will be written (destination, files, what the scripts do) and get explicit approval before installing. README and README.ja.md mention this.
+
 ## 0.1.0
 
 Initial release (https://github.com/motisan-web/claude-context-usage-chart).
