@@ -16,6 +16,12 @@ A Python script reads the local session log and writes a finished HTML file (inl
 
 Example (synthetic data): [open the live sample](https://motisan-web.github.io/claude-context-usage-chart/examples/sample-output.html) ([source file](examples/sample-output.html)). The chart labels are in Japanese.
 
+## Background
+
+In the Claude desktop app (Code tab), the ring under the message box used to show how much of the session's context window was used. According to the official changelog, v2.42304.0 (2026-10-15) changed this: on plans with usage limits the ring now shows plan usage, and context usage moved to a Context card in the session rail (the panel to the right of the conversation; use the "Show session rail" button at the top right if it is hidden). If you only see the plan-usage ring, that is why.
+
+This tool is an unofficial complement to that card. It reconstructs the usage history over time from the session log, shows the breakdown against the whole window including the unused part, and produces a standalone HTML file you can keep or share.
+
 ## Install
 
 Requirements: Claude desktop app or Claude Code, Python 3.8+ (standard library only). Works on Windows, macOS and Linux.
